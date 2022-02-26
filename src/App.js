@@ -1,32 +1,24 @@
 import logo from "./eventlylogo.svg";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import navbar from "./components/navbar";
+import signUp from "./pages/signupPage";
+import logIn from "./pages/loginPage";
+import profile from "./pages/profile";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <ul className="navigation">
-          <li>
-            <img src="eventlylogo.svg" alt="evently logo" />
-          </li>
-          <li className="Evently">Evently</li>
-          <li>
-            <u>
-              <a href="#loginpage">Log In</a>
-            </u>
-          </li>
-          <li>
-            <u>
-              <a href="#signuppage">Sign Up</a>
-            </u>
-          </li>
-          <li>
-            <a href="profilePage.js">
-              <img src="profilelogo.svg" alt="profile" />
-            </a>
-          </li>
-        </ul>
-      </header>
+      <Router>
+        <navbar />
+        {/* switch turned into routes. */}
+        <Routes>
+          {/* maybe use element instead of component */}
+          <Route path="/loginPage" component={logIn} />
+          <Route path="/signupPage" component={signUp} />
+          <Route path="/profile" component={profile} />
+        </Routes>
+      </Router>
     </div>
   );
 }
