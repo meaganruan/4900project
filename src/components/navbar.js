@@ -1,15 +1,20 @@
 import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-const navbar = () => {
+import styled from "styled-components";
+const Navbar = () => {
   return (
     <div>
-      <header>
-        <ul>
+      <div class="header">
+        <ul class="nav-left">
           <li>
-            <img src="eventlylogo.svg" alt="evently logo" />
+            <Link to="home">
+              <img src="/eventlylogo.svg" alt="evently logo" />
+            </Link>
           </li>
           <li>Evently</li>
+        </ul>
+        <ul class="nav-right">
           <li>
             <Link to="loginPage.js">Log In</Link>
           </li>
@@ -18,12 +23,12 @@ const navbar = () => {
           </li>
           <li>
             <Link to="Profile.js">
-              <img src="profilelogo.svg" alt="profile" />
+              <img src="/profilelogo.svg" alt="profile" />
             </Link>
           </li>
         </ul>
-      </header>
+      </div>
     </div>
   );
 };
-export default navbar;
+export default Navbar;
