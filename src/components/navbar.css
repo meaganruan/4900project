@@ -9,12 +9,19 @@
   font-family: "Ropa Sans";
   /* font-size: calc(10px + 2vmin); */
   color: white;
+  padding-right: 0.5 em;
 }
 
-li {
+.nav-left li {
+  display: inline;
+  font-size: 42px;
+  padding-left: 0.5em;
+}
+
+.nav-right li {
   display: inline;
   font-size: 24px;
-  padding: 0.5em;
+  padding-right: 1.5em;
 }
 
 li a {
@@ -25,13 +32,6 @@ li a:hover {
   color: #f38a63;
 }
 
-.nav-left {
-  align-self: flex-start;
-}
-
-.nav-right {
-}
-
 .nav-left img {
   max-width: 5vw;
   max-height: 5vh;
@@ -40,4 +40,5 @@ li a:hover {
 .nav-right img {
   max-width: 4vw;
   max-width: 4vh;
+  padding-right: 1em;
 }
