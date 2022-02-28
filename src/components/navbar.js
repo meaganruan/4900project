@@ -1,6 +1,8 @@
 import React from "react";
 import "./navbar.css";
-// import styled from "styled-components";
+import signUp from "./signupPage";
+import logIn from "./loginPage";
+
 const Navbar = () => {
   return (
     <div>
