@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useState } from "react";
+import LogIn from "./loginPage";
+import SignUp from "./signupPage";
+import Home from "./home";
 
 const Navbar = () => {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -10,28 +13,33 @@ const Navbar = () => {
       <div className="header">
         <ul className="nav-left">
           <li>
-            <Link to="home.js">
+            <Link to="home">
               <img src="/eventlylogo.svg" alt="evently logo" />
             </Link>
           </li>
-          <li>Evently</li>
+          <li>
+            <Link to="home">Evently</Link>
+          </li>
         </ul>
         <ul className="nav-right">
           <li>
-            <Link onClick={() => setButtonPopup(true)} to="loginPage.js">
-              Log In
+            <Link to="loginPage">Log In</Link>
+          </li>
+          <li>
+            <Link onClick={() => setButtonPopup(true)} to="signupPage">
+              Sign Up
             </Link>
-            <logIn trigger={buttonPopup}></logIn>
           </li>
           <li>
-            <Link to="signupPage.js">Sign Up</Link>
-          </li>
-          <li>
-            <Link to="Profile.js">
+            <Link to="Profile">
               <img src="/profilelogo.svg" alt="profile" />
             </Link>
           </li>
         </ul>
+      </div>
+      <div>
+        {/* <LogIn trigger={buttonPopup}></LogIn> */}
+        <SignUp trigger={buttonPopup}></SignUp>
       </div>
     </div>
   );
