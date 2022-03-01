@@ -1,10 +1,11 @@
 import React from "react";
-const signUp = () => {
-  return (
+
+const SignUp = () => {
+  <div>
+    <h3>Sign Up Page</h3>
     <div>
-      <h3>Sign Up Page</h3>
-      <div></div>
+      <img src="profilelogo.svg" alt="testing" />
     </div>
-  );
+  </div>;
 };
-export default signUp;
+export default SignUp;

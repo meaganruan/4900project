@@ -1,31 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./navbar.css";
-import signUp from "./signupPage";
-import logIn from "./loginPage";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <div>
-      <div class="header">
-        <ul class="nav-left">
+      <div className="header">
+        <ul className="nav-left">
           <li>
-            <a href="home">
+            <Link to="home.js">
               <img src="/eventlylogo.svg" alt="evently logo" />
-            </a>
+            </Link>
           </li>
           <li>Evently</li>
         </ul>
-        <ul class="nav-right">
+        <ul className="nav-right">
           <li>
-            <a href="loginPage.js">Log In</a>
+            <Link onClick={() => setButtonPopup(true)} to="loginPage.js">
+              Log In
+            </Link>
+            <logIn trigger={buttonPopup}></logIn>
           </li>
           <li>
-            <a href="signupPage.js">Sign Up</a>
+            <Link to="signupPage.js">Sign Up</Link>
           </li>
           <li>
-            <a href="Profile.js">
+            <Link to="Profile.js">
               <img src="/profilelogo.svg" alt="profile" />
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
