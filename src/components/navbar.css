@@ -25,7 +25,7 @@
   padding-right: 1.5em;
 }
 
-li:nth-child(2) a {
+.nav-left li:nth-child(2) a {
   text-decoration: none;
 }
 

@@ -8,17 +8,20 @@ import Home from "./components/home";
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={Home} />
-          <Route path="/home" element={Home} />
-          <Route path="/loginPage" element={LogIn} />
-          <Route path="/signupPage" element={SignUp} />
-          <Route path="/profile" element={Profile} />
-        </Routes>
-      </Router>
+    <div className="App">
+      <div className="content">
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" component={<Home />} />
+            <Route path="/home" component={<Home />} />
+            <Route path="/loginPage" component={<LogIn />} />
+            <Route path="/signupPage" component={<SignUp />} />
+            <Route path="/profile" component={<Profile />} />
+          </Routes>
+        </Router>
+      </div>
+      <Home />
     </div>
   );
 }

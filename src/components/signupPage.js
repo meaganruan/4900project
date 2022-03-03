@@ -5,15 +5,15 @@ const SignUp = (props) => {
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <div>
-          <button className="close" onClick={() => props.setTrigger(false)}>
-            X
-          </button>
+        <button className="close" onClick={() => this.props.setTrigger(false)}>
+          X
+        </button>
+        <div className="popup-header">
           <img src="eventlylogo.svg" alt="evently logo" />
           <h1>Evently</h1>
         </div>
-
-        <form>
+        {/* need to label form type */}
+        <form className="login-signup-form">
           <label>
             name:
             <input
@@ -37,7 +37,6 @@ const SignUp = (props) => {
             Register
           </button>
         </form>
-        {props.children}
       </div>
     </div>
   ) : (
