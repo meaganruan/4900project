@@ -5,7 +5,7 @@ const SignUp = (props) => {
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <button className="close" onClick={() => this.props.setTrigger(false)}>
+        <button className="close" onClick={(e) => this.props.setTrigger(false)}>
           X
         </button>
         <div className="popup-header">
@@ -14,25 +14,26 @@ const SignUp = (props) => {
         </div>
         {/* need to label form type */}
         <form className="login-signup-form">
-          <label>
-            name:
+          <div className="inputs">
+            <label for="name">Name:</label>
             <input
               type="text"
               name="name"
               placeholder="First Name Last name"
             ></input>
-          </label>
-          <br></br>
-          <label>
-            e-mail:
+          </div>
+          <div className="inputs">
+            <label for="email">E-mail:</label>
             <input type="email" placeholder="abdefg@example.com"></input>
-          </label>
-          <br></br>
-          <label>
-            password:
-            <input type="password" placeholder="********"></input>
-          </label>
-          <br></br>
+          </div>
+          <div className="inputs">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="********"
+            ></input>
+          </div>
           <button type="submit" value="Submit">
             Register
           </button>
