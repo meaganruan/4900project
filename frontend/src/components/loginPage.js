@@ -1,8 +1,11 @@
 import React from "react";
-import "./popups.css";
+import "./styles/popups.css";
 import { useState } from "react";
 import SignUp from "./signupPage";
 
+const handleLogin = () => {
+
+}
 const LogIn = (props) => {
   const [signupPopup, openSU] = useState(false);
   return props.trigger ? (
@@ -16,7 +19,7 @@ const LogIn = (props) => {
           <img src="eventlylogo.svg" alt="evently logo" />
           <h1>Evently</h1>
         </div>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="inputs">
             <label for="email">E-mail:</label>
             <input type="email" placeholder="abdefg@example.com"></input>

@@ -1,7 +1,7 @@
 import React from "react";
-import "./popups.css";
+import "./styles/popups.css";
 
-function handleSubmit() {
+const handleSignup = () => {
   alert("A name was submitted: " + this.state.value);
 }
 const SignUp = (props) => {
@@ -16,7 +16,7 @@ const SignUp = (props) => {
           <h1>Evently</h1>
         </div>
         {/* need to label form type */}
-        <form onSubmit={handleSubmit} className="login-signup-form">
+        <form onSubmit={handleSignup} className="login-signup-form">
           <div className="inputs">
             <label for="name">Name:</label>
             <input
