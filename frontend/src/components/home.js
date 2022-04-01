@@ -1,12 +1,22 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import "./styles/home.css";
-import Events from "./events.js"
 // import Events from "./data/events.json";
 
 // function Event(props){
 //   // display event name, event Image, event description, event start/end Date, event age requirement
 // };
+
+const Events = (props) => {
+  return(
+    <div>
+      <img src= "{props.image}" alt="{props.Eventname}"/>
+      <h2>Event name</h2>
+      <h3>city,state,zipcode</h3>
+      <h3>event description</h3>
+    </div>
+  );
+}
 
 function SearchInput(props) {
   <div className="search">
@@ -56,7 +66,10 @@ const Home = () => {
       <div className="results">
         <h2>Display Results Here</h2>
         <div className="events">
-          
+          <Events />
+          <Events />
+          <Events />
+          <Events />
           <Events />
         </div>
       </div>
