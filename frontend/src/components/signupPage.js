@@ -18,30 +18,31 @@ const SignUp = (props) => {
         {/* need to label form type */}
         <form onSubmit={handleSignup} className="login-signup-form">
           <div className="inputs">
-            <label for="name">Name:</label>
+            <label>Name:</label>
             <input
               type="text"
               name="name"
               placeholder="First Name Last name"
+              required
             ></input>
           </div>
           <div className="inputs">
-            <label for="email">E-mail:</label>
-            <input type="email" placeholder="abdefg@example.com"></input>
+            <label >E-mail:</label>
+            <input type="email" placeholder="abdefg@example.com" required></input>
           </div>
           <div className="inputs">
-            <label for="password">Password:</label>
+            <label >Password:</label>
             <input
               type="password"
               name="password"
               placeholder="********"
+              required
             ></input>
           </div>
           <button type="submit" value="Submit">
             Register
           </button>
         </form>
-        {/* {props.children} */}
       </div>
     </div>
   ) : (

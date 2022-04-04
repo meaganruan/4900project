@@ -17,12 +17,35 @@ const Events = (props) => {
     </div>
   );
 }
+function stringContainsNumber(string) {
+  return /\d/.test(string);
+}
 
 const Home = () => {
-  const [zipcode,setZipcode] = useState('')
-  const zipcodeHandler = (e) => {
-    setZipcode(e.target.value)
+  const [input,setInput] = useState('')
+  const[events,setEvents] = useState([])
+  const inputHandler = (e) => {
+    setInput(e.target.value)
     console.log(e.target.value)
+    // if(e.target.value.isDigit && e.target.value.indexOf(5)===null) {
+    //   console.log("zipcode");
+    //   fetch('http://localhost:8000/events')
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data))
+    //   //check zipcodes
+    // }
+    // else if(stringContainsNumber(e.target.value)===false){
+    //   console.log("city,state");
+    //   fetch('http://localhost:8000/events')
+    //   //check city/state
+    // }
+
+    fetch('http://localhost:8000/events')
+    .then((res) => res.json())
+    .then((data) => console.log(data),
+    //set events as data
+    setEvents(e.target.value.data)
+    )
   }
   return (
     <div className="home">
@@ -31,9 +54,10 @@ const Home = () => {
         <input
         type="text"
         placeholder="'10002' or 'Brooklyn, New York'"
-        onChange={zipcodeHandler}
-        value={zipcode}/>
+        onChange={inputHandler}
+        value={input}/>
       </div>
+      <p>The current input is: {input}</p>
     <div className="filter">
         <button onClick={ToggleFilters}>Filters: </button>
         <div id="filters">
@@ -53,11 +77,8 @@ const Home = () => {
       <div className="results">
         <h2>Display Results Here</h2>
         <div className="events">
-          <Events />
-          <Events />
-          <Events />
-          <Events />
-          <Events />
+          {/* error */}
+          {events.map((event) => <Events/>)}
         </div>
       </div>
     </div>
