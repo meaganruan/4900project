@@ -18,36 +18,23 @@ const Events = (props) => {
   );
 }
 
-function SearchInput(props) {
-  <div className="search">
-        <h2>Search for events through either Zip Code or City, State</h2>
-        <input
-          type="text"
-          placeholder="'10002' or 'Brooklyn, New York'"
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
-        ></input>
-      </div>
-}
-
 const Home = () => {
-  // const [search,setSearch] = useState('');
-
+  const [zipcode,setZipcode] = useState('')
+  const zipcodeHandler = (e) => {
+    setZipcode(e.target.value)
+    console.log(e.target.value)
+  }
   return (
     <div className="home">
-    
     <div className="search">
         <h2>Search for events through either Zip Code or City, State</h2>
         <input
-          type="text"
-          placeholder="'10002' or 'Brooklyn, New York'"
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
-        ></input>
+        type="text"
+        placeholder="'10002' or 'Brooklyn, New York'"
+        onChange={zipcodeHandler}
+        value={zipcode}/>
       </div>
-      <div className="filter">
+    <div className="filter">
         <button onClick={ToggleFilters}>Filters: </button>
         <div id="filters">
           <label htmlFor="age">| Age Requirement(s)</label>
