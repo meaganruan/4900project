@@ -15,27 +15,27 @@ const Navbar = () => {
       <nav className="header">
         <ul className="nav-left">
           <li>
-            <Link to="/">
+            <Link onClick={() => {openLI(false); openSU(false)}} to="/">
               <img src="/eventlylogo.svg" alt="evently logo" />
             </Link>
           </li>
           <li>
-            <Link to="/home">Evently</Link>
+            <Link onClick={() => {openLI(false); openSU(false)}} to="/home">Evently</Link>
           </li>
         </ul>
         <ul className="nav-right">
           <li>
-            <Link onClick={() => openLI(true)} to="/">
+            <Link onClick={() => {openLI(true); openSU(false)}} to="#">
               Log In
             </Link>
           </li>
           <li>
-            <Link onClick={() => openSU(true)} to="/">
+            <Link onClick={() => {openSU(true); openLI(false)}} to="#">
               Sign Up
             </Link>
           </li>
           <li>
-            <Link to="/profile">
+            <Link onClick={() => {openLI(false); openSU(false)}} to="/profile">
               <img src="/profilelogo.svg" alt="profile" />
             </Link>
           </li>

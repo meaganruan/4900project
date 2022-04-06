@@ -7,45 +7,35 @@ import "./styles/home.css";
 //   // display event name, event Image, event description, event start/end Date, event age requirement
 // };
 
-const Events = (props) => {
+const Event = (props) => {
   return(
     <div>
-      <img src= "{props.image}" alt="{props.Eventname}"/>
-      <h2>Event name</h2>
-      <h3>city,state,zipcode</h3>
-      <h3>event description</h3>
+      <p>Event1</p>
     </div>
   );
-}
-function stringContainsNumber(string) {
-  return /\d/.test(string);
 }
 
 const Home = () => {
   const [input,setInput] = useState('')
   const[events,setEvents] = useState([])
+  // const eventList = events.map((ev) => <Events key={ev.id} events={ev}/>)
   const inputHandler = (e) => {
     setInput(e.target.value)
     console.log(e.target.value)
-    // if(e.target.value.isDigit && e.target.value.indexOf(5)===null) {
-    //   console.log("zipcode");
-    //   fetch('http://localhost:8000/events')
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data))
-    //   //check zipcodes
-    // }
-    // else if(stringContainsNumber(e.target.value)===false){
-    //   console.log("city,state");
-    //   fetch('http://localhost:8000/events')
-    //   //check city/state
-    // }
 
-    fetch('http://localhost:8000/events')
-    .then((res) => res.json())
-    .then((data) => console.log(data),
-    //set events as data
-    setEvents(e.target.value.data)
-    )
+    if(e.target.value.length === 5 && !isNaN(e.target.value)) {
+      console.log("the input is " + e.target.value);
+      fetch(`http://localhost:8000/events/?zipcode_like=${input}`)
+      .then((res) => res.json())
+      .then((data) => 
+      {
+        // console.log(data)
+        setEvents({data})
+      }
+      
+      )
+      // console.log(events)
+    }
   }
   return (
     <div className="home">
@@ -77,8 +67,10 @@ const Home = () => {
       <div className="results">
         <h2>Display Results Here</h2>
         <div className="events">
-          {/* error */}
-          {events.map((event) => <Events/>)}
+          {/* {eventList} */}
+          {/* {console.log(events)} */}
+          {events.map((entry) => <Event/>)}
+          {/* <Event/> */}
         </div>
       </div>
     </div>
