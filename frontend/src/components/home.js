@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import "./styles/home.css";
 // import Events from "./data/events.json";
 
@@ -10,7 +10,9 @@ import "./styles/home.css";
 const Event = (props) => {
   return(
     <div>
-      <p>Event1</p>
+      <h2>Event</h2>
+      <h2>Event Name: {props.eventName}</h2>
+      <h3>Description: {props.description}</h3>
     </div>
   );
 }
@@ -29,8 +31,10 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => 
       {
-        // console.log(data)
-        setEvents({data})
+        console.log(data)
+        //not working?
+        // setEvents(currentArray => [...currentArray,{data}])
+        setEvents([{data}])
       }
       
       )
@@ -69,7 +73,7 @@ const Home = () => {
         <div className="events">
           {/* {eventList} */}
           {/* {console.log(events)} */}
-          {events.map((entry) => <Event/>)}
+          {events.map((entry) => <Event key="id" eventName={entry.eventName} description={entry.description}/>)}
           {/* <Event/> */}
         </div>
       </div>

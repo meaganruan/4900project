@@ -56,6 +56,17 @@
       "ageRequirement": "21"
     },
     {
+      "id": "7",
+      "eventName": "Club Night Club 3 Year Anniversary1",
+      "description": "Sugar Hill - celebrating 3 whole years of Club Night Club!",
+      "startDate": "2022-03-12",
+      "endDate": "2022-03-13",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11205",
+      "ageRequirement": "21"
+    },
+    {
       "eventName": "Color Factory Interactive Fun",
       "description": "Art exhibit centered on colors, featuring playful participatory installations in separate rooms.",
       "startDate": "2023-04-13",

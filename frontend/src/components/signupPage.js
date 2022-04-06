@@ -1,10 +1,14 @@
 import React from "react";
 import "./styles/popups.css";
+import { useState } from "react";
+import LogIn from "./loginPage";
 
 const handleSignup = () => {
   alert("A name was submitted: " + this.state.value);
 }
 const SignUp = (props) => {
+    const [loginPopup, openLI] = useState(false);
+    <SignUp trigger={loginPopup} setTrigger={openLI}></SignUp>
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
@@ -43,6 +47,14 @@ const SignUp = (props) => {
             Register
           </button>
         </form>
+        {/* <div className="login">
+          <p>
+            Have an account? Log in{" "}
+            <a href="./" onClick={() => openLI(true)}>
+              here!
+            </a>
+          </p>
+        </div> */}
       </div>
     </div>
   ) : (

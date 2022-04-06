@@ -21,9 +21,11 @@ const LogIn = (props) => {
         </div>
         <form onSubmit={handleLogin}>
           <div className="inputs">
+            <label for="email">E-mail:</label>
             <input type="email" placeholder="abdefg@example.com"></input>
           </div>
           <div className="inputs">
+            <label for="password">Password:</label>
             <input type="password" placeholder="*******"></input>
           </div>
           <button type="submit" onClick={() => props.setTrigger(false)}>
