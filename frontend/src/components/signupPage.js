@@ -8,7 +8,7 @@ const handleSignup = () => {
 }
 const SignUp = (props) => {
     const [loginPopup, openLI] = useState(false);
-    <SignUp trigger={loginPopup} setTrigger={openLI}></SignUp>
+    <LogIn trigger={loginPopup} setTrigger={openLI}></LogIn>
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
