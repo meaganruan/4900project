@@ -66,11 +66,21 @@
 .results {
   padding-top: 2em;
   background-color: #f75e25;
+  padding-left: 5em;
+  border: none;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  padding-bottom: 5em;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 /* events */
-Events{
+.event{
   width: 15%;
-  flex-flow: row wrap;
-  justify-content: center;
+  padding: 3em;
+  background-color: #bebd7f;
+  font-size: 12px;
+  text-shadow: none;
 }

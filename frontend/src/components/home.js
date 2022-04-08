@@ -9,10 +9,11 @@ import "./styles/home.css";
 
 const Event = (props) => {
   return(
-    <div>
-      <h2>Event</h2>
-      <h2>Event Name: {props.eventName}</h2>
-      <h3>Description: {props.description}</h3>
+    <div class="event">
+      <img src={props.image} width="200px" height="300px" alt={props.eventName}/>
+      <h2>{props.eventName}</h2>
+      <p>{props.city}, {props.state} {props.zipcode}</p>
+      <h3>{props.description}</h3>
     </div>
   );
 }
@@ -20,6 +21,7 @@ const Event = (props) => {
 const Home = () => {
   const [input,setInput] = useState('')
   const[events,setEvents] = useState([])
+  const[ageOption,setAge] = useState('')
   // const eventList = events.map((ev) => <Events key={ev.id} events={ev}/>)
   const inputHandler = (e) => {
     setInput(e.target.value)
@@ -27,17 +29,19 @@ const Home = () => {
 
     if(e.target.value.length === 5 && !isNaN(e.target.value)) {
       console.log("the input is " + e.target.value);
-      fetch(`http://localhost:8000/events/?zipcode_like=${input}`)
-      .then((res) => res.json())
+      fetch(`http://localhost:8080/events/?zipcode_like=${input}`)
+      .then((res) => res.json()) 
       .then((data) => 
       {
         console.log(data)
         //not working?
-        // setEvents(currentArray => [...currentArray,{data}])
-        setEvents([{data}])
-      }
-      
-      )
+        //appends to the array
+        // setEvents(currentArray => [...currentArray,...data])
+        setEvents([...data])
+      })
+      // .catch(err => {
+      //   console.log("no results!")
+      // })
       // console.log(events)
     }
   }
@@ -51,7 +55,7 @@ const Home = () => {
         onChange={inputHandler}
         value={input}/>
       </div>
-      <p>The current input is: {input}</p>
+      {/* <p>The current input is: {input}</p> */}
     <div className="filter">
         <button onClick={ToggleFilters}>Filters: </button>
         <div id="filters">
@@ -69,12 +73,17 @@ const Home = () => {
         </div>
       </div>
       <div className="results">
-        <h2>Display Results Here</h2>
+        Results:
         <div className="events">
-          {/* {eventList} */}
-          {/* {console.log(events)} */}
-          {events.map((entry) => <Event key="id" eventName={entry.eventName} description={entry.description}/>)}
-          {/* <Event/> */}
+          {events.map((entry,i) => <Event 
+                                  data={entry}
+                                  eventName={entry.eventName} 
+                                  description={entry.description} 
+                                  ageRequirement={entry.ageRequirement} 
+                                  image={entry.image} 
+                                  city={entry.city} 
+                                  state={entry.state} 
+                                  zipcode={entry.zipcode}/>)}
         </div>
       </div>
     </div>
