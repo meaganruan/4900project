@@ -9,11 +9,14 @@ import "./styles/home.css";
 
 const Event = (props) => {
   return(
-    <div class="event">
-      <img src={props.image} width="200px" height="300px" alt={props.eventName}/>
+    <div className="eventCards">
+      <div className="event">
+      <img src={props.image} width="200px" height="250px" alt={props.eventName}/>
       <h2>{props.eventName}</h2>
-      <p>{props.city}, {props.state} {props.zipcode}</p>
-      <h3>{props.description}</h3>
+      <h3>{props.city}, {props.state} {props.zipcode}</h3>
+      <h4>From {props.startDate} to {props.endDate}</h4>
+      <p>{props.description}</p>
+      </div>
     </div>
   );
 }
@@ -22,6 +25,8 @@ const Home = () => {
   const [input,setInput] = useState('')
   const[events,setEvents] = useState([])
   const[ageOption,setAge] = useState('')
+  const[startDate, setStart] = useState('')
+  const[endDate, setEnd] = useState('')
   // const eventList = events.map((ev) => <Events key={ev.id} events={ev}/>)
   const inputHandler = (e) => {
     setInput(e.target.value)
@@ -29,7 +34,7 @@ const Home = () => {
 
     if(e.target.value.length === 5 && !isNaN(e.target.value)) {
       console.log("the input is " + e.target.value);
-      fetch(`http://localhost:8080/events/?zipcode_like=${input}`)
+      fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}&endDate_like=${endDate}`)
       .then((res) => res.json()) 
       .then((data) => 
       {
@@ -44,6 +49,9 @@ const Home = () => {
       // })
       // console.log(events)
     }
+    else{
+      console.log("no results")
+    }
   }
   return (
     <div className="home">
@@ -55,35 +63,39 @@ const Home = () => {
         onChange={inputHandler}
         value={input}/>
       </div>
-      {/* <p>The current input is: {input}</p> */}
     <div className="filter">
         <button onClick={ToggleFilters}>Filters: </button>
         <div id="filters">
           <label htmlFor="age">| Age Requirement(s)</label>
-          <select name="age">
-            <option href="#/all-ages" value="all-ages">All-Ages</option>
+          <select className="age">
+            <option href="#/all-ages" value="all-ages" onChange={(e)=>{setAge(e.target.value); console.log("age selected: " + e.target.value)}}>All-Ages</option>
             <option href="#/teens" value="teens">Teens</option>
             <option href="#/18" value="18up">18+</option>
             <option href="#/21" value="21up">21+</option>
           </select>
           <label htmlFor="start-date-time">| Event Start Date</label>
-          <input type="date"></input>
+          <input type="date" onChange={(e)=>{setStart(e.target.value); console.log("start date:" + e.target.value)}}></input>
           <label htmlFor="end-date-time">| Event End Date</label>
-          <input type="date"></input>
+          <input type="date" onChange={(e)=>{setEnd(e.target.value); console.log("end date:" + e.target.value)}}></input>
         </div>
       </div>
       <div className="results">
         Results:
         <div className="events">
-          {events.map((entry,i) => <Event 
-                                  data={entry}
-                                  eventName={entry.eventName} 
-                                  description={entry.description} 
-                                  ageRequirement={entry.ageRequirement} 
-                                  image={entry.image} 
-                                  city={entry.city} 
-                                  state={entry.state} 
-                                  zipcode={entry.zipcode}/>)}
+          {events.map((entry,i) => 
+          <Event 
+          key={entry.id}
+          data={entry}
+          eventName={entry.eventName} 
+          description={entry.description} 
+          ageRequirement={entry.ageRequirement} 
+          image={entry.image} 
+          city={entry.city} 
+          state={entry.state} 
+          zipcode={entry.zipcode}
+          startDate={entry.startDate}
+          endDate={entry.endDate}
+          />)}
         </div>
       </div>
     </div>

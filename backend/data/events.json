@@ -25,6 +25,7 @@
       "ageRequirement": "0"
     },
     {
+      "id": "3",
       "eventName": "NYC Coffee and Tea Festival",
       "image": "https://mindyweiss.com/wp-content/uploads/2017/02/TooFacedPeach-106.jpg",
       "description": "An international extravaganza celebrating all things coffee and tea.",
@@ -36,6 +37,7 @@
       "ageRequirement": "0"
     },
     {
+      "id": "4",
       "eventName": "The Lumineers",
       "image": "https://mindyweiss.com/wp-content/uploads/2017/02/TooFacedPeach-106.jpg",
       "description": "Debut album through Nashville’s Dualtone in 2012. The album garnered two GRAMMY nominations.",
@@ -47,11 +49,12 @@
       "ageRequirement": "16"
     },
     {
+      "id": "5",
       "eventName": "Club Night Club 3 Year Anniversary",
       "image": "https://mindyweiss.com/wp-content/uploads/2017/02/TooFacedPeach-106.jpg",
       "description": "Sugar Hill - celebrating 3 whole years of Club Night Club!",
-      "startDate": "2022-03-12",
-      "endDate": "2022-03-13",
+      "startDate": "2023-03-12",
+      "endDate": "2023-03-13",
       "city": "Brooklyn",
       "state": "NY",
       "zipcode": "11205",
@@ -70,6 +73,43 @@
       "ageRequirement": "21"
     },
     {
+      "id": "8",
+      "eventName": "Club Night Club 3 Year Anniversary1",
+      "image": "https://mindyweiss.com/wp-content/uploads/2017/02/TooFacedPeach-106.jpg",
+      "description": "Sugar Hill - celebrating 3 whole years of Club Night Club!",
+      "startDate": "2022-06-12",
+      "endDate": "2022-06-13",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11205",
+      "ageRequirement": "21"
+    },
+    {
+      "id": "9",
+      "eventName": "Club Night Club 3 Year Anniversary1",
+      "image": "https://mindyweiss.com/wp-content/uploads/2017/02/TooFacedPeach-106.jpg",
+      "description": "Sugar Hill - celebrating 3 whole years of Club Night Club!",
+      "startDate": "2022-05-12",
+      "endDate": "2022-05-13",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11205",
+      "ageRequirement": "21"
+    },
+    {
+      "id": "11",
+      "eventName": "Club Night Club 3 Year Anniversary1",
+      "image": "https://mindyweiss.com/wp-content/uploads/2017/02/TooFacedPeach-106.jpg",
+      "description": "Sugar Hill - celebrating 3 whole years of Club Night Club!",
+      "startDate": "2022-04-12",
+      "endDate": "2022-04-13",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11205",
+      "ageRequirement": "21"
+    },
+    {
+      "id": "10",
       "eventName": "Color Factory Interactive Fun",
       "image": "https://mindyweiss.com/wp-content/uploads/2017/02/TooFacedPeach-106.jpg",
       "description": "Art exhibit centered on colors, featuring playful participatory installations in separate rooms.",
