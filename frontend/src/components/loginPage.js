@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/popups.css";
 import { useState } from "react";
 import SignUp from "./signupPage";
+import GoogleLI from "./googleLogin";
 
 const handleLogin = () => {
 
@@ -32,6 +33,7 @@ const LogIn = (props) => {
             Log In
           </button>
         </form>
+        <GoogleLI/>
         <div className="register">
           <p>
             No account? Register{" "}

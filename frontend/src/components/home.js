@@ -24,10 +24,10 @@ const Event = (props) => {
 
 const Home = () => {
   const [input,setInput] = useState('')
-  const[events,setEvents] = useState([])
-  const[ageOption,setAge] = useState('0')
-  const[startDate, setStart] = useState('')
-  const[endDate, setEnd] = useState('')
+  const [events,setEvents] = useState([])
+  const [ageOption,setAge] = useState('')
+  const [startDate, setStart] = useState('')
+  const [endDate, setEnd] = useState('')
   // const eventList = events.map((ev) => <Events key={ev.id} events={ev}/>)
   const inputHandler = (e) => {
     setInput(e.target.value)
@@ -68,16 +68,46 @@ const Home = () => {
         <button onClick={ToggleFilters}>Filters: </button>
         <div id="filters">
           <label htmlFor="age">| Age Requirement(s)</label>
-          <select className="age" onChange={(e)=>{setAge(e.target.value); console.log("age selected:" + e.target.value)}}>
-            <option value="0">All-Ages</option>
-            <option value="13-17">Teens</option>
+          <select className="age" onChange={(e)=>{setAge(e.target.value); 
+            console.log("age selected:" + e.target.value);
+            fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${e.target.value}`)
+            .then((res) => res.json()) 
+            .then((data) => 
+            {
+              console.log(data)
+              setEvents([...data])
+            })
+    
+          }
+          }>
+            <option value="">All-Ages</option>
+            <option value="13">Teens</option>
             <option value="18">18+</option>
             <option value="21">21+</option>
           </select>
           <label htmlFor="start-date-time">| Event Start Date</label>
-          <input type="date" onChange={(e)=>{setStart(e.target.value); console.log("start date:" + e.target.value)}}></input>
+          <input type="date" onChange={(e)=>{setStart(e.target.value); 
+          console.log("start date:" + e.target.value);
+          fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}&endDate_like=${e.target.value}`)
+            .then((res) => res.json()) 
+            .then((data) => 
+            {
+              console.log(data)
+              setEvents([...data])
+            })
+        }
+        }>
+        </input>
           <label htmlFor="end-date-time">| Event End Date</label>
-          <input type="date" onChange={(e)=>{setEnd(e.target.value); console.log("end date:" + e.target.value)}}></input>
+          <input type="date" onChange={(e)=>{setEnd(e.target.value); 
+            console.log("end date:" + e.target.value);
+            fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}`)
+            .then((res) => res.json()) 
+            .then((data) => 
+            {
+              console.log(data)
+              setEvents([...data])
+            })}}></input>
         </div>
       </div>
       <div className="results">
