@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 // import styled from "styled-components";
-import "./styles/home.css";
+import "../styles/home.css";
 // import Events from "./data/events.json";
 
 // function Event(props){
@@ -16,6 +16,7 @@ const Event = (props) => {
       <h3>{props.city}, {props.state} {props.zipcode}</h3>
       <h4>From {props.startDate} to {props.endDate}</h4>
       <p>{props.description}</p>
+      <p>Age Requirement: {props.ageRequirement}</p>
       </div>
     </div>
   );
@@ -24,7 +25,7 @@ const Event = (props) => {
 const Home = () => {
   const [input,setInput] = useState('')
   const[events,setEvents] = useState([])
-  const[ageOption,setAge] = useState('')
+  const[ageOption,setAge] = useState('0')
   const[startDate, setStart] = useState('')
   const[endDate, setEnd] = useState('')
   // const eventList = events.map((ev) => <Events key={ev.id} events={ev}/>)
@@ -67,11 +68,11 @@ const Home = () => {
         <button onClick={ToggleFilters}>Filters: </button>
         <div id="filters">
           <label htmlFor="age">| Age Requirement(s)</label>
-          <select className="age">
-            <option href="#/all-ages" value="all-ages" onChange={(e)=>{setAge(e.target.value); console.log("age selected: " + e.target.value)}}>All-Ages</option>
-            <option href="#/teens" value="teens">Teens</option>
-            <option href="#/18" value="18up">18+</option>
-            <option href="#/21" value="21up">21+</option>
+          <select className="age" onChange={(e)=>{setAge(e.target.value); console.log("age selected:" + e.target.value)}}>
+            <option value="0">All-Ages</option>
+            <option value="13-17">Teens</option>
+            <option value="18">18+</option>
+            <option value="21">21+</option>
           </select>
           <label htmlFor="start-date-time">| Event Start Date</label>
           <input type="date" onChange={(e)=>{setStart(e.target.value); console.log("start date:" + e.target.value)}}></input>

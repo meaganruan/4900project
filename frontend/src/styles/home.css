@@ -83,6 +83,7 @@
 
 /* events */
 .eventCards{
+  padding-top: 2em;
   width: 15%;
   height: 100%;
   padding: 1em;

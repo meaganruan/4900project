@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/popups.css";
+import "../styles/popups.css";
 import { useState } from "react";
 import LogIn from "./loginPage";
 
