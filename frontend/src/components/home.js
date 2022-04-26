@@ -1,22 +1,22 @@
-import React, {useEffect, useState} from "react";
-// import styled from "styled-components";
+import React, {useState} from "react";
 import "../styles/home.css";
-// import Events from "./data/events.json";
-
-// function Event(props){
-//   // display event name, event Image, event description, event start/end Date, event age requirement
-// };
+import GoogleLI from "./googleLogin.js"
 
 const Event = (props) => {
   return(
     <div className="eventCards">
-      <div className="event">
-      <img src={props.image} width="200px" height="250px" alt={props.eventName}/>
-      <h2>{props.eventName}</h2>
-      <h3>{props.city}, {props.state} {props.zipcode}</h3>
-      <h4>From {props.startDate} to {props.endDate}</h4>
-      <p>{props.description}</p>
-      <p>Age Requirement: {props.ageRequirement}</p>
+      <div className="cardInner">
+        <div className="event">
+          <img src={props.image} width="200px" height="250px" alt={props.eventName}/>
+          <h2>{props.eventName}</h2>
+          <h3>{props.city}, {props.state} {props.zipcode}</h3>
+          <h4>From {props.startDate} to {props.endDate}</h4>
+          <p>{props.description}</p>
+          <p>Age Requirement: {props.ageRequirement}</p>
+        </div>
+        <div className="eventBack">
+          <button></button>
+        </div>
       </div>
     </div>
   );
@@ -35,7 +35,7 @@ const Home = () => {
 
     if(e.target.value.length === 5 && !isNaN(e.target.value)) {
       console.log("the input is " + e.target.value);
-      fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}&endDate_like=${endDate}`)
+      fetch(`http://localhost:8080/events/?zipcode_like=${input}`)
       .then((res) => res.json()) 
       .then((data) => 
       {
@@ -88,7 +88,7 @@ const Home = () => {
           <label htmlFor="start-date-time">| Event Start Date</label>
           <input type="date" onChange={(e)=>{setStart(e.target.value); 
           console.log("start date:" + e.target.value);
-          fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}&endDate_like=${e.target.value}`)
+          fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${e.target.value}`)
             .then((res) => res.json()) 
             .then((data) => 
             {
@@ -96,18 +96,18 @@ const Home = () => {
               setEvents([...data])
             })
         }
-        }>
-        </input>
+        }/>
           <label htmlFor="end-date-time">| Event End Date</label>
           <input type="date" onChange={(e)=>{setEnd(e.target.value); 
             console.log("end date:" + e.target.value);
-            fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}`)
+            fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}&endDate_like=${e.target.value}`)
             .then((res) => res.json()) 
             .then((data) => 
             {
               console.log(data)
               setEvents([...data])
-            })}}></input>
+            })
+          }}/>
         </div>
       </div>
       <div className="results">
