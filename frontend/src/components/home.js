@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import "../styles/home.css";
-import GoogleLI from "./googleLogin.js"
 
 const Event = (props) => {
   return(
