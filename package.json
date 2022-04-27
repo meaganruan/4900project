@@ -4,9 +4,8 @@
   "description": "backend server for evently",
   "main": "server.js",
   "scripts": {
-    "start": "backend/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "json:server": "json-server -p 8080 -w ./backend/data/events.json"
+    "start": "json-server -p 8080 -w ./backend/data/events.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
