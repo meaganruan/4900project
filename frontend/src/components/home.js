@@ -5,7 +5,7 @@ const Event = (props) => {
   return(
     <div className="eventCards">
       <div className="cardInner">
-        <div className="event">
+        <div className="eventFront">
           <img src={props.image} width="200px" height="250px" alt={props.eventName}/>
           <h2>{props.eventName}</h2>
           <h3>{props.city}, {props.state} {props.zipcode}</h3>
@@ -14,7 +14,7 @@ const Event = (props) => {
           <p>Age Requirement: {props.ageRequirement}</p>
         </div>
         <div className="eventBack">
-          <button></button>
+          <button onClick="">Register</button>
         </div>
       </div>
     </div>
