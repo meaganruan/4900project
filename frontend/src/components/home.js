@@ -4,19 +4,13 @@ import "../styles/home.css";
 const Event = (props) => {
   return(
     <div className="eventCards">
-      <div className="cardInner">
-        <div className="eventFront">
-          <img src={props.image} width="200px" height="250px" alt={props.eventName}/>
+          <img src={props.image} width="200px" height="200px" alt={props.eventName}/>
           <h2>{props.eventName}</h2>
           <h3>{props.city}, {props.state} {props.zipcode}</h3>
           <h4>From {props.startDate} to {props.endDate}</h4>
           <p>{props.description}</p>
           <p>Age Requirement: {props.ageRequirement}</p>
-        </div>
-        <div className="eventBack">
-          <button onClick="">Register</button>
-        </div>
-      </div>
+          <button>Register</button>
     </div>
   );
 }
@@ -59,7 +53,7 @@ const Home = () => {
         <h2>Search for events through either Zip Code or City, State</h2>
         <input
         type="text"
-        placeholder="'10002' or 'Brooklyn, New York'"
+        placeholder="'11205' or 'Brooklyn, New York'"
         onChange={inputHandler}
         value={input}/>
       </div>
