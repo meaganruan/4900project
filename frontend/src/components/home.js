@@ -20,7 +20,6 @@ const Home = () => {
   const [events,setEvents] = useState([])
   const [ageOption,setAge] = useState('')
   const [startDate, setStart] = useState('')
-  const [endDate, setEnd] = useState('')
   // const eventList = events.map((ev) => <Events key={ev.id} events={ev}/>)
   const inputHandler = (e) => {
     setInput(e.target.value)
@@ -28,7 +27,7 @@ const Home = () => {
 
     if(e.target.value.length === 5 && !isNaN(e.target.value)) {
       console.log("the input is " + e.target.value);
-      fetch(`http://localhost:8080/events/?zipcode_like=${input}`)
+      fetch(`http://localhost:8000/events/?zipcode_like=${input}`)
       .then((res) => res.json()) 
       .then((data) => 
       {
@@ -63,7 +62,7 @@ const Home = () => {
           <label htmlFor="age">| Age Requirement(s)</label>
           <select className="age" onChange={(e)=>{setAge(e.target.value); 
             console.log("age selected:" + e.target.value);
-            fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${e.target.value}`)
+            fetch(`http://localhost:8000/events/?zipcode_like=${input}&ageRequirement_like=${e.target.value}`)
             .then((res) => res.json()) 
             .then((data) => 
             {
@@ -81,7 +80,7 @@ const Home = () => {
           <label htmlFor="start-date-time">| Event Start Date</label>
           <input type="date" onChange={(e)=>{setStart(e.target.value); 
           console.log("start date:" + e.target.value);
-          fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${e.target.value}`)
+          fetch(`http://localhost:8000/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${e.target.value}`)
             .then((res) => res.json()) 
             .then((data) => 
             {
@@ -91,9 +90,9 @@ const Home = () => {
         }
         }/>
           <label htmlFor="end-date-time">| Event End Date</label>
-          <input type="date" onChange={(e)=>{setEnd(e.target.value); 
+          <input type="date" onChange={(e)=>{
             console.log("end date:" + e.target.value);
-            fetch(`http://localhost:8080/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}&endDate_like=${e.target.value}`)
+            fetch(`http://localhost:8000/events/?zipcode_like=${input}&ageRequirement_like=${ageOption}&startDate_like=${startDate}&endDate_like=${e.target.value}`)
             .then((res) => res.json()) 
             .then((data) => 
             {
