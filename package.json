@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "backend server for evently",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Meagan Ruan",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
